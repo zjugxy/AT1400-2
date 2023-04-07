@@ -1,0 +1,65 @@
+There are more than 50 papers related to Neural Radiance Fields (NeRFs) at the CVPR 2022 conference. With my former student and now colleague at Google Research, Andrew Marmon, we rounded up all papers we could find and organized them here for our edification, and your reading pleasure.
+
+Below are all the papers at CVPR’22 that we could find by scanning titles and reading the associated papers, sometimes rather superficially because of the sheer number. Please forgive any mis-characterizations and/or omissions, and feel free to flag them by DM to @fdellaert on twitter.
+
+Important note: all of the images below are reproduced from the cited papers, and the copyright belongs to the authors or the organization that published their papers, like IEEE. Below I reproduce a key figure or video for some papers under the fair use clause of copyright law.
+
+NeRF
+NeRF was introduced in the seminal Neural Radiance Fields paper by Mildenhall et al. at ECCV 2020. By now NeRF is a phenomenon, but for those that are unfamiliar with it, please refer to the original paper or my two previous blog posts on the subject:
+
+NeRF Explosion 2020
+NeRF at ICCV 2021
+In short, as shown in the figure below, a “vanilla” NeRF stores a volumetric scene representation as the weights of an MLP, trained on many images with known pose:
+
+NeRF at CVPR 2022
+ 13 minute read
+ Published: June 21, 2022
+
+There are more than 50 papers related to Neural Radiance Fields (NeRFs) at the CVPR 2022 conference. With my former student and now colleague at Google Research, Andrew Marmon, we rounded up all papers we could find and organized them here for our edification, and your reading pleasure.
+
+Below are all the papers at CVPR’22 that we could find by scanning titles and reading the associated papers, sometimes rather superficially because of the sheer number. Please forgive any mis-characterizations and/or omissions, and feel free to flag them by DM to @fdellaert on twitter.
+
+Important note: all of the images below are reproduced from the cited papers, and the copyright belongs to the authors or the organization that published their papers, like IEEE. Below I reproduce a key figure or video for some papers under the fair use clause of copyright law.
+
+NeRF
+NeRF was introduced in the seminal Neural Radiance Fields paper by Mildenhall et al. at ECCV 2020. By now NeRF is a phenomenon, but for those that are unfamiliar with it, please refer to the original paper or my two previous blog posts on the subject:
+
+NeRF Explosion 2020
+NeRF at ICCV 2021
+In short, as shown in the figure below, a “vanilla” NeRF stores a volumetric scene representation as the weights of an MLP, trained on many images with known pose:
+
+NeRF overview Figure: Nerf Overview.
+
+Fundamentals
+Again, many papers address the fundamentals of view-synthesis with NeRF-like methods:
+
+Teaser videos from NeRF in the Dark (see below) which is just one of many papers that blew us away in terms of image synthesis quality.
+
+AR-NeRF replaces the pinhole-based ray tracing with aperture-based ray-tracing, enabling unsupervised learning of depth-of-field and defocus effects. (pdf)
+
+Aug-NeRF uses three different techniques to augment the training data to yield a significant boost in view synthesis quality. (pdf)
+
+Deblur-NeRF take an analysis-by-synthesis approach to recover a sharp NeRF from motion-blurred images, by simulating the blurring process using a learnable, spatially varying blur kernel. (pdf)
+
+DIVeR use a voxel-based representation to guide a deterministic volume rendering scheme, allowing it to render thin structures and other subtleties missed by traditional NeRF rendering. (pdf) Best Paper Finalist
+
+Ha-NeRF😆 uses an appearance latent vector from images with different lighting and effects to render novel views with similarly-styled appearance. (pdf)
+
+HDR-NeRF learns a separate MLP-based tone mapping function to transform the radiance and density of a given ray to a high-dynamic range (HDR) pixel color at that point in the output image. (pdf)
+
+Learning Neural Light Fields learn a 4D lightfield, but transform the 4D input to an embedding space first to enable generalization from sparse 4D training samples, which gives good view dependent results. (pdf)
+
+Mip-NeRF-360 extends the ICCV Mip-NeRF work to unbounded scenes, and also adds a prior that reduces cloudiness and other artifacts. (pdf)
+
+NeRF in the Dark modifes NeRF to train directly on raw images, and provide controls for HDR rendering including tone-mapping, focus, and exposure. (pdf)
+
+NeRFReN enables dealing with reflections by splitting a scene into transmitted and reflected components, and modeling the two components with separate neural radiance fields. (pdf)
+
+NeuRay improves rendering quality by predicting the visibility of 3D points to input views, enabling the radiance field construction to focus on visible image features. (pdf)
+
+Ref-NeRF significantly improves the realism and accuracy of specular reflections by replacing NeRF’s parameterization of view-dependent outgoing radiance with a representation of reflected radiance. (pdf) Best Student Paper Honorable Mention
+
+SRT “processes posed or unposed RGB images of a new area, infers a ‘set-latent scene representation’, and synthesizes novel views, all in a single feed-forward pass.” (pdf)
+
+Priors
+One important way to improve the synthesis of new views instead is with various forms of generic or depth-driven priors:
